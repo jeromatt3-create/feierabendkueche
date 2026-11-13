@@ -19,7 +19,8 @@
     "category": "unter-20-minuten",
     "keyword": "Schnelle Schupfnudel-Gemüse-Pfanne in 15 Minuten aus wenigen Zutaten",
     "intent": "informational",
-    "status": "pending"
+    "status": "published",
+    "publishedAt": "2026-11-13T23:11:37.262Z"
   },
   {
     "id": "knusprige-ofenkartoffeln-mit-kraeuterquark-airfryer",
@@ -33,7 +34,8 @@
     "category": "one-pot-pfanne",
     "keyword": "Cremige Tortellini-Brokkoli-Pfanne in 15 Minuten – ohne Vorkochen im Topf",
     "intent": "informational",
-    "status": "pending"
+    "status": "published",
+    "publishedAt": "2026-11-13T23:12:48.863Z"
   },
   {
     "id": "linsensuppe-aus-roten-linsen-in-20-minuten",

@@ -81,14 +81,15 @@ Recherchiere aktuelle, verlässliche Fakten für Deutschland (ohne Erfinden fikt
 7. "ingredients": 6 bis 8 reale Supermarkt-Zutaten mit NUMERISCHER "amount" (z. B. 250, 1.5), "unit" (g, ml, EL, Stück) und "item".
 8. "keyTakeaways": 3 kurze Küchen-Highlights.
 9. "steps": 3 konkrete Kochschritte (step, title, summary, tip).
-- "bodyMarkdown": ausführlicher, klar gegliederter Praxis-Text auf Deutsch (mind. 750–1.000 Wörter) mit ## Überschriften und Listen.
-- "faqs": 3–4 echte Nutzerfragen mit klaren Antworten.
+- "keywords": 6 bis 8 spezifische Long-Tail-Keywords (inkl. umgangssprachlicher Problem-Suchanfragen ohne Fachbegriff, so wie Nutzer bei Google tatsächlich suchen).
+- "bodyMarkdown": ausführlicher, klar gegliederter Praxis-Text auf Deutsch (mind. 750–1.000 Wörter) mit ## Überschriften und Listen. Behandle darin zwingend auch verwandte Problemvarianten, typische Fehlerquellen und umgangssprachliche Synonyme.
+- "faqs": 5 konkrete Nutzerfragen im Stil von Google „Nutzer fragen auch“ mit direkten Antworten.
 
 Antworte AUSSCHLIESSLICH mit einem validen JSON-Objekt:
 {
   "title": "Prägnanter SEO-Titel (55-75 Zeichen)",
   "description": "Überzeugende Meta-Description (130-160 Zeichen)",
-  "keywords": ["Keyword 1", "Keyword 2", "Keyword 3", "Keyword 4"],
+  "keywords": ["Keyword 1", "Umgangssprachliche Problemfrage 2", "Keyword 3", "Keyword 4", "Keyword 5", "Keyword 6"],
   "readingTime": 6,
   "servings": 2,
   "prepMinutes": 18,

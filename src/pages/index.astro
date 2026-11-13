@@ -9,9 +9,26 @@ import { withBase } from '../utils/url.js';
 const allArticles = await getCollection('articles');
 const articles = allArticles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const categories = getCategoryList();
+const siteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_CONFIG.name,
+  url: 'https://jeromatt3-create.github.io/feierabendkueche/',
+  description: SITE_CONFIG.description,
+  inLanguage: 'de-DE',
+};
+const indexLinks = articles.flatMap((article) => {
+  const labels = Array.from(
+    new Set([
+      ...(article.data.keywords || []),
+      ...(article.data.errorCodes || []).map((c) => `Fehlercode ${c}`),
+    ])
+  );
+  return labels.map((label) => ({ label, slug: article.id }));
+});
 ---
 
-<BaseLayout>
+<BaseLayout jsonLd={siteJsonLd}>
   <section class="hero">
     <div class="container hero-grid">
       <div>
@@ -112,5 +129,20 @@ const categories = getCategoryList();
       </div>
     </div>
   </section>
+
+  {indexLinks.length > 0 && (
+    <section class="section" style="background:var(--surface-alt);border-top:1px solid var(--border);">
+      <div class="container">
+        <div class="section-header" style="margin-bottom:1rem;">
+          <h2>Häufig gesuchte Probleme, Rechner &amp; Themen A–Z</h2>
+        </div>
+        <div class="keyword-cloud">
+          {indexLinks.map((item) => (
+            <a href={withBase(`/artikel/${item.slug}/`) } class="keyword-pill">{item.label}</a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 </BaseLayout>
 

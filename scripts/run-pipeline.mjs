@@ -33,7 +33,7 @@ function parseArgs(argv) {
 
 async function main() {
   const opts = parseArgs(process.argv.slice(2));
-  console.log('🚀 Starte autonome Affiliate-Content-Pipeline...');
+  console.log('🚀 Starte autonome Content-Pipeline...');
   console.log(
     `   Modus: ${opts.dryRun ? 'DRY-RUN (ohne API-Kosten / ohne Schreibvorgang)' : 'PRODUKTIV'} | Anzahl: ${opts.count}`
   );
@@ -82,7 +82,7 @@ async function main() {
       );
     } else {
       console.log(
-        `   [PUBLISHED] ${r.title} -> ${path.relative(ROOT_DIR, r.articlePath)} (${r.productCount} Produkte)`
+        `   [PUBLISHED] ${r.title} -> ${path.relative(ROOT_DIR, r.articlePath)} (${r.productCount} Schritte/Einträge)`
       );
     }
   }
