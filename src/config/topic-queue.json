@@ -1,0 +1,144 @@
+[
+  {
+    "id": "guenstige-kichererbsen-curry-pfanne-15-minuten",
+    "category": "guenstig-kochen",
+    "keyword": "Schnelles Kichererbsen-Kokos-Curry in 15 Minuten für unter 2 Euro pro Portion",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "couscous-salat-mit-feta-und-gurke-meal-prep",
+    "category": "meal-prep-buero",
+    "keyword": "Bunter Couscous-Feta-Salat in 10 Minuten: Perfektes Meal-Prep für das Büro",
+    "intent": "informational",
+    "status": "published",
+    "publishedAt": "2026-11-13T22:45:30.574Z"
+  },
+  {
+    "id": "schupfnudel-gemuese-pfanne-mit-rahm-senf-sauce",
+    "category": "unter-20-minuten",
+    "keyword": "Schnelle Schupfnudel-Gemüse-Pfanne in 15 Minuten aus wenigen Zutaten",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "knusprige-ofenkartoffeln-mit-kraeuterquark-airfryer",
+    "category": "ofen-airfryer",
+    "keyword": "Extra knusprige Rosmarin-Kartoffelspalten mit Quark aus dem Airfryer oder Ofen",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "tortellini-brokkoli-pfanne-cremig-ein-topf",
+    "category": "one-pot-pfanne",
+    "keyword": "Cremige Tortellini-Brokkoli-Pfanne in 15 Minuten – ohne Vorkochen im Topf",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "linsensuppe-aus-roten-linsen-in-20-minuten",
+    "category": "guenstig-kochen",
+    "keyword": "Herzhafte rote Linsensuppe mit Karotte & Zitrone: Günstiger Sattmacher in 20 Min.",
+    "intent": "informational",
+    "status": "published",
+    "publishedAt": "2026-11-13T22:46:20.354Z"
+  },
+  {
+    "id": "reispfanne-mit-ei-und-erbsen-resteverwertung",
+    "category": "unter-20-minuten",
+    "keyword": "Gebratener Reis mit Ei & Gemüse in 12 Minuten: Die beste Resteverwertung",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "wraps-mit-crispy-tofu-und-joghurt-sauce",
+    "category": "meal-prep-buero",
+    "keyword": "Saftige Lunch-Wraps zum Vorbereiten: Durchweichen verhindern mit einfachem Schicht-Trick",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "flammkuchen-vom-blech-mit-schmand-und-lauchzwiebeln",
+    "category": "ofen-airfryer",
+    "keyword": "Knuspriger Feierabend-Flammkuchen in 20 Minuten – klassisch oder vegetarisch",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "gnocchi-pfanne-mit-kirschtomaten-und-mozzarella",
+    "category": "one-pot-pfanne",
+    "keyword": "Goldbraune Gnocchi-Pfanne mit Kirschtomaten & Mozzarella in 15 Minuten",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "kartoffelsuppe-schnell-mit-wuerstchen-oder-rauchertofu",
+    "category": "guenstig-kochen",
+    "keyword": "Sämige Kartoffelsuppe für kalte Abende – günstig vorkochen für 2 Tage",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "overnight-oats-grundrezept-5-variationen-buero",
+    "category": "meal-prep-buero",
+    "keyword": "Overnight Oats Grundrezept in 3 Minuten abends anrühren für das Büro-Frühstück",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "aglio-e-olio-spaghetti-trick-fuer-cremige-emulsion",
+    "category": "unter-20-minuten",
+    "keyword": "Spaghetti Aglio e Olio richtig kochen: So entsteht mit Nudelwasser eine perfekte Bindung",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "lachs-aus-dem-airfryer-mit-honig-senf-glasur",
+    "category": "ofen-airfryer",
+    "keyword": "Saftiges Lachsfilet mit Honig-Senf-Kruste aus der Heißluftfritteuse in 10 Minuten",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "shakshuka-aus-einer-pfanne-mit-feta-und-ei",
+    "category": "one-pot-pfanne",
+    "keyword": "Würzige Shakshuka-Pfanne mit pochierten Eiern und Tomaten – fertig in 20 Minuten",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "altes-brot-retten-panzanella-und-arme-ritter",
+    "category": "guenstig-kochen",
+    "keyword": "Altes Brot clever verwerten: Herzhafte Brotpfanne & knusprige Croutons in 10 Min.",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "glasnudelsalat-oder-asian-noodle-bowl-15-minuten",
+    "category": "meal-prep-buero",
+    "keyword": "Schnelle Asia-Nudel-Bowl mit Erdnuss-Limetten-Dressing zum Mitnehmen",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "feta-tomaten-pasta-aus-dem-ofen-klassiker",
+    "category": "ofen-airfryer",
+    "keyword": "Ofen-Feta mit Kirschtomaten & Pasta verfeinert: Extra schnell für zwei Personen",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "gemuese-omelett-mit-kaese-und-kraeutern-10-minuten",
+    "category": "unter-20-minuten",
+    "keyword": "Lockeres Kräuter-Gemüse-Omelett für den späten Feierabend in 10 Minuten",
+    "intent": "informational",
+    "status": "pending"
+  },
+  {
+    "id": "chili-sin-carne-aus-vorraeten-in-20-minuten",
+    "category": "guenstig-kochen",
+    "keyword": "Schnelles Chili sin Carne mit Kidneybohnen & Mais – perfekt für mehrere Portionen",
+    "intent": "informational",
+    "status": "pending"
+  }
+]

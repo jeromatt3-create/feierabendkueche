@@ -1,0 +1,92 @@
+---
+interface Ingredient {
+  amount: number;
+  unit: string;
+  item: string;
+}
+interface Props {
+  servings?: number;
+  prepMinutes?: number;
+  calories?: string;
+  costPerServing?: string;
+  ingredients?: Ingredient[];
+}
+const {
+  servings = 2,
+  prepMinutes = 20,
+  calories = '',
+  costPerServing = '',
+  ingredients = [],
+} = Astro.props;
+---
+
+<section class="tool-panel" id="rezept-zutaten" style="margin-bottom:1.75rem;">
+  <div class="recipe-meta-strip">
+    <div><strong>⏱️ Zubereitungszeit:</strong><br />ca. {prepMinutes} Min.</div>
+    <div><strong>🍽️ Basis-Portionen:</strong><br /><span id="active-servings">{servings}</span> Portionen</div>
+    {calories && <div><strong>🔥 Energie:</strong><br />{calories} / Portion</div>}
+    {costPerServing && <div><strong>💶 Kosten:</strong><br />{costPerServing} / Portion</div>}
+  </div>
+
+  {
+    ingredients.length > 0 && (
+      <div>
+        <div class="portion-controls" data-base-servings={servings}>
+          <span style="font-weight:700;font-size:0.9rem;margin-right:0.3rem;">Portionen umrechnen:</span>
+          {[1, 2, 4, 6].map((cnt) => (
+            <button
+              type="button"
+              class={cnt === servings ? 'portion-btn is-active' : 'portion-btn'}
+              data-set-servings={cnt}
+            >
+              {cnt} {cnt === 1 ? 'Portion' : 'Portionen'}
+            </button>
+          ))}
+        </div>
+
+        <h3 style="margin:0.5rem 0 0.75rem;">Zutatenliste (zum Abhaken beim Kochen)</h3>
+        <ul class="ingredient-list">
+          {ingredients.map((ing) => (
+            <li>
+              <label class="ingredient-row">
+                <input type="checkbox" class="ing-check" />
+                <span>
+                  <strong data-base-amount={ing.amount}>{ing.amount}</strong> {ing.unit} {ing.item}
+                </span>
+              </label>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+</section>
+
+<script>
+  const controls = document.querySelector('.portion-controls');
+  const baseServings = Number(controls?.getAttribute('data-base-servings') || 2);
+  const buttons = document.querySelectorAll('[data-set-servings]');
+  const activeLabel = document.getElementById('active-servings');
+  const amounts = document.querySelectorAll('[data-base-amount]');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = Number(btn.getAttribute('data-set-servings') || baseServings);
+      buttons.forEach((b) => b.classList.toggle('is-active', b === btn));
+      if (activeLabel) activeLabel.textContent = String(target);
+      const factor = target / baseServings;
+      amounts.forEach((el) => {
+        const baseVal = Number(el.getAttribute('data-base-amount') || 0);
+        const scaled = Math.round(baseVal * factor * 10) / 10;
+        el.textContent = scaled.toLocaleString('de-DE');
+      });
+    });
+  });
+
+  document.querySelectorAll('.ing-check').forEach((chk) => {
+    chk.addEventListener('change', (e) => {
+      const input = e.target as HTMLInputElement;
+      input.closest('.ingredient-row')?.classList.toggle('is-checked', input.checked);
+    });
+  });
+</script>

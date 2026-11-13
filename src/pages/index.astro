@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AdSlot from '../components/AdSlot.astro';
+import { SITE_CONFIG, getCategoryList, getCategoryBySlug } from '../config/site.config.mjs';
+import { withBase } from '../utils/url.js';
+
+
+const allArticles = await getCollection('articles');
+const articles = allArticles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const categories = getCategoryList();
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-badge">FeierabendKüche • Aktuell {new Date().getFullYear()}</span>
+        <h1>Richtig gut kochen nach der Arbeit – in höchstens 25 Minuten auf dem Tisch</h1>
+        <p>Ehrliche Feierabend-Rezepte mit wenig Abwasch, bezahlbaren Zutaten aus jedem Supermarkt und automatischem Portions-Umrechner.</p>
+        
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="#alle-beitraege" class="btn-primary">Alle Rezepte entdecken ↓</a>
+          <a href={withBase('/ueber-uns/')} class="btn-secondary">Unsere Methodik</a>
+        </div>
+      </div>
+      
+      <div style="background:rgba(255,255,255,0.11);border:1px solid rgba(255,255,255,0.22);border-radius:14px;padding:1.35rem;display:grid;gap:0.85rem;">
+        <div><strong>⏱️ Maximal 25 Minuten</strong><br /><span style="font-size:0.88rem;color:#fef3c7;">Rezepte, die nach einem langen Arbeitstag sofort gelingen.</span></div>
+        <div><strong>🍽️ Portions-Umrechner</strong><br /><span style="font-size:0.88rem;color:#fef3c7;">Mit einem Klick für 1, 2, 4 oder 6 Personen skalieren.</span></div>
+        <div><strong>🥘 Wenig Abwasch</strong><br /><span style="font-size:0.88rem;color:#fef3c7;">One-Pot, Pfanne &amp; Airfryer mit Supermarkt-Zutaten.</span></div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Themenbereiche</h2>
+        <span style="color:var(--text-muted);font-size:0.9rem;">{articles.length} Beiträge in {categories.length} Rubriken</span>
+      </div>
+      <div class="category-grid">
+        {categories.map((cat) => (
+          <a href={withBase(`/kategorie/${cat.slug}/`) } class="category-card">
+            <span class="category-icon">{cat.icon}</span>
+            <h3>{cat.name}</h3>
+            <p>{cat.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <AdSlot placement="header" />
+
+  <section class="section" id="alle-beitraege">
+    <div class="container">
+      <div class="section-header">
+        <h2>Neueste Feierabend-Rezepte</h2>
+        <span id="diag-filter-status" style="color:var(--text-muted);font-size:0.9rem;">{articles.length} Einträge</span>
+      </div>
+
+      <div class="articles-grid">
+        {articles.map((article) => {
+          const cat = getCategoryBySlug(article.data.category);
+          const dateStr = article.data.pubDate.toLocaleDateString('de-DE', { year: 'numeric', month: 'short', day: 'numeric' });
+          const searchBlob = [
+            article.data.title,
+            article.data.description,
+            article.data.brands || '',
+            ...(article.data.errorCodes || []),
+            ...(article.data.keywords || []),
+          ].join(' ');
+          return (
+            <article class="article-card" data-diag-card data-search={searchBlob}>
+              <a href={withBase(`/artikel/${article.id}/`) } class="article-card-media">
+                {article.data.heroImage && <img src={withBase(article.data.heroImage)} alt={article.data.title} loading="lazy" />}
+              </a>
+              <div class="article-card-body">
+                <div class="article-meta-row">
+                  <span class="cat-tag">{cat.icon} {cat.name}</span>
+                  <span>{dateStr}</span>
+                </div>
+                {article.data.errorCodes && article.data.errorCodes.length > 0 && (
+                  <div style="display:flex;gap:0.35rem;flex-wrap:wrap;">
+                    {article.data.errorCodes.slice(0, 3).map((code) => <span class="code-chip">{code}</span>)}
+                  </div>
+                )}
+                {article.data.prepMinutes && (
+                  <div style="display:flex;gap:0.6rem;font-size:0.82rem;color:var(--primary-dark);font-weight:700;">
+                    <span>⏱️ {article.data.prepMinutes} Min.</span>
+                    {article.data.costPerServing && <span>💶 {article.data.costPerServing}</span>}
+                  </div>
+                )}
+                {article.data.savingPotential && (
+                  <div style="font-size:0.82rem;color:var(--primary-dark);font-weight:700;">
+                    💡 Potenzial: {article.data.savingPotential}
+                  </div>
+                )}
+                <h3><a href={withBase(`/artikel/${article.id}/`) }>{article.data.title}</a></h3>
+                <p>{article.data.description}</p>
+                <div class="article-card-footer">
+                  <span>{article.data.readingTime || 6} Min. Lesezeit</span>
+                  <a href={withBase(`/artikel/${article.id}/`) }>Zum Rezept →</a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

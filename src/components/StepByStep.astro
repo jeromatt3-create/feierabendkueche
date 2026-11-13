@@ -1,0 +1,31 @@
+---
+interface StepItem {
+  step: number;
+  title: string;
+  summary: string;
+  tip?: string;
+}
+interface Props {
+  steps: StepItem[];
+  heading?: string;
+}
+const { steps = [], heading = 'Schritt-für-Schritt-Anleitung' } = Astro.props;
+---
+
+{steps.length > 0 && (
+  <section style="margin-bottom:2rem;">
+    <h2 style="font-size:1.5rem;margin-bottom:1rem;">{heading}</h2>
+    <div class="steps-grid">
+      {steps.map((s) => (
+        <div class="step-card">
+          <div class="step-head">
+            <span class="step-num">{s.step}</span>
+            <h3 style="margin:0;font-size:1.14rem;">{s.title}</h3>
+          </div>
+          <p style="margin:0;">{s.summary}</p>
+          {s.tip && <div class="step-tip"><strong>Praxis-Tipp:</strong> {s.tip}</div>}
+        </div>
+      ))}
+    </div>
+  </section>
+)}

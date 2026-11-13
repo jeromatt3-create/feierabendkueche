@@ -1,0 +1,89 @@
+name: Autonomer Content-Workflow (FeierabendKüche)
+
+on:
+  schedule:
+    # täglich 07:10 & 18:10 Uhr MEZ (06:10 & 17:10 UTC)
+    - cron: '10 6,17 * * *'
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Optional: Spezifisches Thema'
+        required: false
+        default: ''
+        type: string
+      category:
+        description: 'Optional: Kategorie'
+        required: false
+        default: ''
+        type: string
+      count:
+        description: 'Anzahl neuer Beiträge (1-3)'
+        required: false
+        default: '1'
+        type: string
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-and-content
+  cancel-in-progress: false
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Autonome Gemini Content-Pipeline
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-flash-latest' }}
+          USE_SEARCH_GROUNDING: ${{ vars.USE_SEARCH_GROUNDING || 'true' }}
+          INPUT_TOPIC: ${{ github.event.inputs.topic || '' }}
+          INPUT_CATEGORY: ${{ github.event.inputs.category || '' }}
+          INPUT_COUNT: ${{ github.event.inputs.count || '1' }}
+        run: |
+          ARGS=("--count=${INPUT_COUNT}")
+          if [ -n "$INPUT_TOPIC" ]; then ARGS+=("--topic=${INPUT_TOPIC}"); fi
+          if [ -n "$INPUT_CATEGORY" ]; then ARGS+=("--category=${INPUT_CATEGORY}"); fi
+          node scripts/run-pipeline.mjs "${ARGS[@]}"
+      - name: Neue Beiträge committen
+        run: |
+          git config user.name "Content-Bot"
+          git config user.email "content-bot@users.noreply.github.com"
+          git add src/content/articles/ public/images/articles/ public/images/pins/ src/config/topic-queue.json
+          if git diff --staged --quiet; then
+            echo "Keine Änderungen."
+          else
+            git commit -m "chore(content): neue Beiträge automatisch veröffentlicht"
+            git push
+          fi
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Astro Website bauen
+        env:
+          SITE_NAME: ${{ vars.SITE_NAME || 'FeierabendKüche' }}
+          SITE_URL: ${{ vars.SITE_URL || steps.pages.outputs.origin }}
+          BASE_PATH: ${{ vars.BASE_PATH || steps.pages.outputs.base_path || '/' }}
+          PUBLIC_ADSENSE_CLIENT: ${{ vars.PUBLIC_ADSENSE_CLIENT || '' }}
+        run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: IndexNow Ping senden
+        env:
+          SITE_URL: ${{ vars.SITE_URL || steps.pages.outputs.origin }}
+          BASE_PATH: ${{ vars.BASE_PATH || steps.pages.outputs.base_path || '/' }}
+        run: node scripts/ping-indexnow.mjs

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '../config/site.config.mjs';
+---
+<BaseLayout title={`Impressum | ${SITE_CONFIG.name}`}>
+  <div class="container article-layout">
+    <div class="prose">
+      <h1>Impressum</h1>
+      <p><strong>Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</strong></p>
+      <p>
+        <strong>Jeronimo Mattmüller</strong><br />
+        Max-Grothe-Str. 4<br />
+        04324 Leipzig<br />
+        Deutschland
+      </p>
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:vd1hz54pr@mozmail.com">vd1hz54pr@mozmail.com</a><br />
+        Telefon: 015754686543
+      </p>
+      <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+      <p>Jeronimo Mattmüller, Anschrift wie oben.</p>
+      <h2>Hinweis zu Inhalten &amp; Finanzierung</h2>
+      <p>
+        {SITE_CONFIG.name} ist ein kostenloses Informations- und Ratgeberportal. Alle Hinweise werden nach bestem Wissen recherchiert, ersetzen im Einzelfall jedoch keine professionelle Steuer-, Rechts- oder Fachhandwerker-Beratung. Zur Deckung der Betriebskosten können Werbeeinblendungen (z. B. über Google AdSense) eingesetzt werden.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '../config/site.config.mjs';
+---
+<BaseLayout title={`Datenschutzerklärung | ${SITE_CONFIG.name}`}>
+  <div class="container article-layout">
+    <div class="prose">
+      <h1>Datenschutzerklärung</h1>
+      <p>Nachfolgend informieren wir dich über den Umgang mit Daten beim Besuch von {SITE_CONFIG.name}.</p>
+      <h2>1. Verantwortliche Stelle</h2>
+      <p>Jeronimo Mattmüller, Max-Grothe-Str. 4, 04324 Leipzig, E-Mail: vd1hz54pr@mozmail.com.</p>
+      <h2>2. Hosting &amp; Server-Logfiles</h2>
+      <p>
+        Diese Website wird als statische Seite über GitHub Pages bereitgestellt. Beim Aufruf verarbeitet der Hosting-Anbieter technisch erforderliche Verbindungsdaten (IP-Adresse, Zeitpunkt, Browsertyp) zur Auslieferung und Systemsicherheit (Art. 6 Abs. 1 lit. f DSGVO).
+      </p>
+      <h2>3. Werbung / Google AdSense (optional bei Aktivierung)</h2>
+      <p>
+        Sofern Werbeanzeigen (z. B. über Google AdSense) auf dieser Website eingeblendet werden, können Cookies oder pseudonyme Kennungen zur Aussteuerung und Abrechnung genutzt werden. Aktuell werden ohne aktive Einbindung keine Werbecookies gesetzt.
+      </p>
+      <h2>4. Deine Rechte</h2>
+      <p>Du hast im Rahmen der DSGVO das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung.</p>
+    </div>
+  </div>
+</BaseLayout>

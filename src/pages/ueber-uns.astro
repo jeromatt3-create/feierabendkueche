@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '../config/site.config.mjs';
+---
+<BaseLayout title={`Über ${SITE_CONFIG.name}`}>
+  <div class="container article-layout">
+    <div class="prose">
+      <h1>Über {SITE_CONFIG.name}</h1>
+      <p>{SITE_CONFIG.description}</p>
+      <h2>Unser Anspruch</h2>
+      <ul>
+        <li><strong>Praxis statt Theorie:</strong> Jede Anleitung liefert konkrete Schritte, Formeln oder Mengenangaben für den Alltag.</li>
+        <li><strong>Unabhängig nutzbar:</strong> Alle Beiträge und Werkzeuge stehen ohne Registrierung und ohne Bezahlschranke offen.</li>
+        <li><strong>Sicherheit geht vor:</strong> Bei technischen Arbeiten oder rechtlichen Themen weisen wir klar auf Grenzen und Fachbetriebe hin.</li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>
