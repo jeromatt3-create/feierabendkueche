@@ -81,7 +81,8 @@
     "category": "guenstig-kochen",
     "keyword": "Sämige Kartoffelsuppe für kalte Abende – günstig vorkochen für 2 Tage",
     "intent": "informational",
-    "status": "pending"
+    "status": "published",
+    "publishedAt": "2026-11-15T17:40:20.551Z"
   },
   {
     "id": "overnight-oats-grundrezept-5-variationen-buero",
