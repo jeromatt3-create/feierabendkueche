@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#c2410c"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <circle cx="1040" cy="140" r="190" fill="#ffffff" opacity="0.06"/>
+  <circle cx="160" cy="520" r="210" fill="#ffffff" opacity="0.05"/>
+  <rect x="80" y="86" width="380" height="46" rx="23" fill="#ffffff" opacity="0.16"/>
+  <text x="270" y="116" font-family="DejaVu Sans, Segoe UI, Arial, sans-serif" font-size="21" font-weight="800" fill="#ffffff" text-anchor="middle">UNTER 20 MINUTEN</text>
+  <text x="80" y="250" font-family="DejaVu Sans, Segoe UI, Arial, sans-serif" font-size="50" font-weight="800" fill="#ffffff">Spaghetti Aglio e Olio: Das</text>
+  <text x="80" y="322" font-family="DejaVu Sans, Segoe UI, Arial, sans-serif" font-size="50" font-weight="800" fill="#fde68a">cremige 15-Minuten-Feierabend-R...</text>
+  <text x="80" y="405" font-family="DejaVu Sans, Segoe UI, Arial, sans-serif" font-size="26" fill="#e2e8f0">FeierabendKüche  •  Praxisnahe Schritt-für-Schritt-Hilfe</text>
+  <rect x="80" y="472" width="320" height="58" rx="12" fill="#3f6212"/>
+  <text x="240" y="509" font-family="DejaVu Sans, Segoe UI, Arial, sans-serif" font-size="23" font-weight="800" fill="#ffffff" text-anchor="middle">Jetzt Anleitung lesen</text>
+</svg>

@@ -98,7 +98,8 @@
     "category": "unter-20-minuten",
     "keyword": "Spaghetti Aglio e Olio richtig kochen: So entsteht mit Nudelwasser eine perfekte Bindung",
     "intent": "informational",
-    "status": "pending"
+    "status": "published",
+    "publishedAt": "2026-11-17T07:18:35.174Z"
   },
   {
     "id": "lachs-aus-dem-airfryer-mit-honig-senf-glasur",
