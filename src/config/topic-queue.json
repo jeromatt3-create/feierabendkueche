@@ -135,7 +135,8 @@
     "category": "ofen-airfryer",
     "keyword": "Ofen-Feta mit Kirschtomaten & Pasta verfeinert: Extra schnell für zwei Personen",
     "intent": "informational",
-    "status": "pending"
+    "status": "published",
+    "publishedAt": "2026-11-18T17:58:15.504Z"
   },
   {
     "id": "gemuese-omelett-mit-kaese-und-kraeutern-10-minuten",
