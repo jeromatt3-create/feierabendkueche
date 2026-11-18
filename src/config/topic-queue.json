@@ -142,7 +142,8 @@
     "category": "unter-20-minuten",
     "keyword": "Lockeres Kräuter-Gemüse-Omelett für den späten Feierabend in 10 Minuten",
     "intent": "informational",
-    "status": "pending"
+    "status": "published",
+    "publishedAt": "2026-11-18T07:18:02.435Z"
   },
   {
     "id": "chili-sin-carne-aus-vorraeten-in-20-minuten",
