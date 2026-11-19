@@ -106,7 +106,8 @@
     "category": "ofen-airfryer",
     "keyword": "Saftiges Lachsfilet mit Honig-Senf-Kruste aus der Heißluftfritteuse in 10 Minuten",
     "intent": "informational",
-    "status": "pending"
+    "status": "published",
+    "publishedAt": "2026-11-19T07:17:39.429Z"
   },
   {
     "id": "shakshuka-aus-einer-pfanne-mit-feta-und-ei",
