@@ -130,7 +130,8 @@
     "category": "meal-prep-buero",
     "keyword": "Schnelle Asia-Nudel-Bowl mit Erdnuss-Limetten-Dressing zum Mitnehmen",
     "intent": "informational",
-    "status": "pending"
+    "status": "published",
+    "publishedAt": "2026-11-20T07:18:18.671Z"
   },
   {
     "id": "feta-tomaten-pasta-aus-dem-ofen-klassiker",
