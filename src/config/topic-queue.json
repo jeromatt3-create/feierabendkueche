@@ -92,7 +92,8 @@
     "category": "meal-prep-buero",
     "keyword": "Overnight Oats Grundrezept in 3 Minuten abends anrühren für das Büro-Frühstück",
     "intent": "informational",
-    "status": "pending"
+    "status": "published",
+    "publishedAt": "2026-11-21T17:45:38.688Z"
   },
   {
     "id": "aglio-e-olio-spaghetti-trick-fuer-cremige-emulsion",
