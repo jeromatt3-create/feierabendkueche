@@ -124,7 +124,8 @@
     "category": "guenstig-kochen",
     "keyword": "Altes Brot clever verwerten: Herzhafte Brotpfanne & knusprige Croutons in 10 Min.",
     "intent": "informational",
-    "status": "pending"
+    "status": "published",
+    "publishedAt": "2026-11-22T07:10:14.534Z"
   },
   {
     "id": "glasnudelsalat-oder-asian-noodle-bowl-15-minuten",
